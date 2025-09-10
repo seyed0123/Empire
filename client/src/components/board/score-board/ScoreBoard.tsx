@@ -34,6 +34,9 @@ export const ScoreBoard = (props: {
           return (
             <div
               key={score.playerId}
+              className={`${styles.ScoreElement} ${
+                ctx.currentPlayer === score.playerId ? styles.activeTurn : ""
+              }`}
               style={{
                 color: PLAYER_COLORS[score.playerId],
                 ...currentTurn(
@@ -42,7 +45,6 @@ export const ScoreBoard = (props: {
                   model[index].passed
                 ),
               }}
-              className={styles.ScoreElement}
             >
               {`P${score.playerId}: ${score.score}`}
               <sub>

@@ -69,6 +69,7 @@ const BoardView = (props: {
                   key={playerState.id}
                   state={playerState}
                   moves={moves}
+                  ctx={ctx}
                 />
               );
             }

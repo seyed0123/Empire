@@ -10,21 +10,29 @@
 }
 
 .BtnsContainer {
-  margin-top: 0.2em;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  z-index: 1100;
   display: flex;
   flex-direction: row;
-  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5em;
+  pointer-events: none; // let clicks pass through empty areas
   > .LeftBtnContainer {
     display: flex;
-    width: 100%;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    justify-items: flex-start;
-    align-content: flex-start;
-    margin-left: 0.2em;
+    gap: 0.5em;
+    margin-left: 0.5em;
+    pointer-events: auto; // enable clicks on buttons
   }
   > .RightButtonContainer {
-    margin-right: 0.2em;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    margin-right: 0.5em;
+    pointer-events: auto; // enable clicks on buttons
   }
 }
