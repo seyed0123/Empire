@@ -2,13 +2,29 @@
   display: block;
   height: var(--cardHeight);
   width: var(--cardWidth);
+  
+  /* Background */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  box-shadow: 0px 4px 8px 0 black;
-  border-radius: 6px;
-  margin: 0;
-  padding: 0;
+  
+  /* Rounded corners & depth */
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  
+  /* Clean look */
   border: none;
   outline: none;
+  margin: 0;
+  padding: 0;
+
+  /* Smooth animations */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+
+  /* Active/pressed state */
+  &:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
 }

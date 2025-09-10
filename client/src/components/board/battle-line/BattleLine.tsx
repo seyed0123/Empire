@@ -77,7 +77,6 @@ export const BattleLine = (props: { state: PlayerState; moves: Moves; ctx: GameC
       }}
       data-dragging={isDragging ? "true" : "false"}
     >
-      <div className={styles.LaneStripe} />
       <div className={styles.Particles} aria-hidden="true" />
       <TransitionGroup component={null}>
         {model.map((card: ICardModel) => {

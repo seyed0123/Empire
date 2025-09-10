@@ -1,13 +1,29 @@
 .Container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;   /* allow growth beyond screen height */
   position: relative;
+  margin-top: 4em;
+
+  padding: 0.5em 0;
+  gap: 0.2em;         /* reduce space between battle lines */
 }
+
+
+/* BattleLine wrapper (margin top/bottom for breathing room) */
+.BattleLineWrapper {
+  margin: 0.1em 0;          /* top + bottom margin */
+  width: 100%;              /* so they align properly */
+  display: flex;
+  justify-content: center;
+}
+
 
 .BtnsContainer {
   position: fixed;

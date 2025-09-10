@@ -52,23 +52,6 @@
     radial-gradient(circle at 80% 80%, rgba(0,0,0,0.04) 0 18%, transparent 18%);
 }
 
-/* edge stripe in player color */
-.LaneStripe {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 6px;
-  background: linear-gradient(
-    to bottom,
-    var(--laneColor),
-    rgba(255,255,255,0.8),
-    var(--laneColor)
-  );
-  box-shadow: 0 0 12px var(--laneColor);
-  border-radius: 6px;
-  pointer-events: none;
-}
 
 /* lightweight particles */
 .Particles {
@@ -132,6 +115,7 @@
     box-shadow: 0 0 15px #ff6b6b;
   }
 }
+
 
 @keyframes pulseGlow {
   0%, 100% {
