@@ -11,22 +11,23 @@ export const PixiBackground = () => {
       autoDensity: true,
     } as any);
 
-    app.view.style.position = "fixed";
-    app.view.style.top = "0";
-    app.view.style.left = "0";
-    app.view.style.width = "100%";
-    app.view.style.height = "100%";
-    app.view.style.zIndex = "-1";
-    document.body.appendChild(app.view);
+    const canvas = app.view as HTMLCanvasElement; // 👈 cast
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.style.zIndex = "-1";
+    document.body.appendChild(canvas);
 
-    const background = PIXI.Sprite.from("/pixi_img/castle2.jpg");
+    const background = PIXI.Sprite.from("/pixi_img/castle2.jpg") as PIXI.Sprite;
     background.width = app.screen.width;
     background.height = app.screen.height;
-    app.stage.addChild(background);
+    app.stage.addChild(background as PIXI.DisplayObject);
 
-    const depthMap = PIXI.Sprite.from("/pixi_img/castle_depth_map.png");
+    const depthMap = PIXI.Sprite.from("/pixi_img/castle_depth_map.png") as PIXI.Sprite;
     depthMap.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
-    app.stage.addChild(depthMap);
+    app.stage.addChild(depthMap as PIXI.DisplayObject);
 
     const displacementFilter = new PIXI.filters.DisplacementFilter(depthMap);
     displacementFilter.scale.set(30, 30);
