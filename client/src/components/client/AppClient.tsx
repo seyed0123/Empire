@@ -5,11 +5,15 @@ import { Board } from "../board/Board";
 import { MainMenu } from "../main-menu/MainMenu";
 import { GameConfig } from "../../utils/game-config";
 import { GameLobby } from "../game-lobby/GameLobby";
+import { PixiBackground } from "../main-menu/pixiBackground";
+
 
 export const AppClient = (): JSX.Element => {
   const navigate = useNavigate();
   registerNavigate(navigate);
   return (
+    <>
+    <PixiBackground />
     <Routes>
       <Route path="/" element={<MainMenu />} />
       <Route
@@ -34,5 +38,6 @@ export const AppClient = (): JSX.Element => {
       />
       <Route path="/multiplayer" element={<GameLobby />} />
     </Routes>
+    </>
   );
 };

@@ -5,6 +5,7 @@ export const MainMenu = (): JSX.Element => {
   const { menu } = useMainMenu();
   return (
     <div className={styles.Container}>
+      <img src="/EmpireLogo.png" alt="mainLogo" />
       {menu?.entries?.map((entry: MenuEntry, index: number) => {
         return (
           <button
