@@ -1,4 +1,5 @@
 .Container {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: flex-start; 
@@ -9,11 +10,10 @@
   min-height: calc(var(--cardHeight) + 1em);
   height: fit-content;
   border-radius: 16px;
-  padding: 0.75em 1em;
+  padding: 1.5em 1em 0.75em 1em;
   gap: 0.75em;
 
   /* glass effect */
-  border: 2px solid rgba(255, 255, 255, 0.18);
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.12),
@@ -52,6 +52,33 @@
     radial-gradient(circle at 80% 80%, rgba(0,0,0,0.04) 0 18%, transparent 18%);
 }
 
+.PlayerIcon {
+  position: absolute;
+  top: 0.4em;
+  left: 0.6em;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--laneColor, #888);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+/* Optional hover pulse */
+.PlayerIcon.active {
+  animation: iconPulse 1.8s infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 6px var(--laneColor); }
+  50% { transform: scale(1.1); box-shadow: 0 0 12px var(--laneColor); }
+}
 
 /* lightweight particles */
 .Particles {
