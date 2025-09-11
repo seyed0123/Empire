@@ -19,15 +19,13 @@ export const AppClient = (): JSX.Element => {
   const BATTLE_AUDIOS = ["/audio/Warm_Light.mp3", "/audio/Green_Nature.mp3", "/audio/Dark_Castle.mp3"];
   const randomBattleAudio = BATTLE_AUDIOS[Math.floor(Math.random() * BATTLE_AUDIOS.length)];
 
-  // Play menu music on load
   useEffect(() => {
     const audio = menuAudioRef.current;
     if (!audio) return;
     audio.loop = true;
-    audio.muted = true; // muted initially to bypass autoplay restrictions
+    audio.muted = true; 
     audio.play().catch(() => {});
     
-    // Unmute after first user interaction
     const unmute = () => {
       if (audio) {
         audio.muted = false;
@@ -46,30 +44,25 @@ export const AppClient = (): JSX.Element => {
     };
   }, []);
 
-  // Switch audio when changing routes
   useEffect(() => {
     const menuAudio = menuAudioRef.current;
     const battleAudio = battleAudioRef.current;
 
     if (location.pathname.startsWith("/battle")) {
-      // Stop menu music
       if (menuAudio) {
         menuAudio.pause();
         menuAudio.currentTime = 0;
       }
-      // Start battle music
       if (battleAudio) {
         battleAudio.loop = true;
         battleAudio.muted = false;
         battleAudio.play().catch(() => {});
       }
     } else {
-      // Stop battle music
       if (battleAudio) {
         battleAudio.pause();
         battleAudio.currentTime = 0;
       }
-      // Start menu music
       if (menuAudio) {
         menuAudio.play().catch(() => {});
       }
