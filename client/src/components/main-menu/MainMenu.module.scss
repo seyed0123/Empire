@@ -15,10 +15,8 @@
   letter-spacing: 2px;
   color: #f5d36b; 
   text-shadow: 0 0 6px #000, 0 0 12px #b8860b;
-
   cursor: pointer;
   padding: 20px 60px;
-
   background: linear-gradient(to bottom, #936B47 , #936B47 60%,#936B47);
   border: 4px solid #3b2a1f;
   border-radius: 20px;
@@ -63,4 +61,8 @@
 .Text {
   position: relative;
   z-index: 2;
+}
+img {
+  width: 200px;
+  height: 100%;
 }

@@ -20,13 +20,11 @@ export const PixiBackground = () => {
     document.body.appendChild(app.view);
 
     const background = PIXI.Sprite.from("/pixi_img/castle2.jpg");
-background.texture.baseTexture.on("error", (e) => console.error("Background failed to load:", e));
     background.width = app.screen.width;
     background.height = app.screen.height;
     app.stage.addChild(background);
 
     const depthMap = PIXI.Sprite.from("/pixi_img/castle_depth_map.png");
-depthMap.texture.baseTexture.on("error", (e) => console.error("Depth map failed to load:", e));
     depthMap.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
     app.stage.addChild(depthMap);
 
