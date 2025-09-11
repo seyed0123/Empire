@@ -26,6 +26,9 @@
 
 /* CSS */
 :global{
+
+
+/* CSS */
 .button-13 {
   touch-action: manipulation;
   background: none;
@@ -49,7 +52,7 @@
   z-index: 2;
   inset: 0;
   clip-path: polygon(12px 0, calc(100% - 12px) 0%, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0% calc(100% - 12px), 0% 12px);
-  background-color: #936B47;
+  background-color: saddlebrown;
   background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.8)), linear-gradient(to bottom, #af6a65, calc(12.5% - 1px), #cfa381, #88312b calc(12.5% + 1px) 50%, #601d2c 50% calc(87.5% - 1px), #994021, #341227 calc(87.5% + 1px));
   transition-property: filter;
   transition-duration: 0.2s;
