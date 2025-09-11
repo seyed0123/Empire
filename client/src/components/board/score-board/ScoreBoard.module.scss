@@ -1,30 +1,57 @@
 .Container {
+  position: fixed;          /* stays in place */
+  top: 0.5rem;              /* adjust distance from top of screen */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;            /* ensure it's above cards */
+  
   display: flex;
-  flex-direction: row;
-  justify-items: center;
-  align-items: center;
   justify-content: center;
-  align-content: center;
-  width: 100%;
+  width: auto;
+
   > .ScoreElements {
-    width: fit-content;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
-    border-style: solid;
-    border-color: black;
-    padding: 0.5em;
-    column-gap: 1em;
-    background-color: var(--orangebrown);
-    border-width: 2px;
-    border-radius: 20px;
-    > .ScoreElement {
-      font-size: 1.4em;
-      font-weight: 900;
-      color: white;
-      > sub {
-        font-size: 0.75em;
-      }
-    }
+    align-items: center;
+    gap: 1em;
+
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 14px;
+    padding: 0.5em 1em;
+
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.05)
+    );
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+    animation: fadeInDown 0.5s ease-out;
   }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.ScoreElement {
+  font-size: 1.4em;
+  font-weight: 900;
+}
+
+.ScoreElement sub {
+  font-size: 0.7em;
+  margin-left: 0.25em;
+  padding: 0 0.35em;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.4);
 }
