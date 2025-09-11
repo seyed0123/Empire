@@ -1,0 +1,110 @@
+{
+  "name": "macbookpro",
+  "dependencies": {
+    "@inlet/react-pixi": {
+      "version": "6.8.0",
+      "resolved": "https://registry.npmjs.org/@inlet/react-pixi/-/react-pixi-6.8.0.tgz",
+      "overridden": false
+    },
+    "@pixi/filter-displacement": {
+      "version": "7.4.3",
+      "resolved": "https://registry.npmjs.org/@pixi/filter-displacement/-/filter-displacement-7.4.3.tgz",
+      "overridden": false
+    },
+    "@pixi/unsafe-eval": {
+      "version": "7.4.3",
+      "resolved": "https://registry.npmjs.org/@pixi/unsafe-eval/-/unsafe-eval-7.4.3.tgz",
+      "overridden": false
+    },
+    "@types/accepts": {
+      "version": "1.3.7",
+      "resolved": "https://registry.npmjs.org/@types/accepts/-/accepts-1.3.7.tgz",
+      "overridden": false
+    },
+    "@types/pixi.js": {
+      "version": "4.8.9",
+      "resolved": "https://registry.npmjs.org/@types/pixi.js/-/pixi.js-4.8.9.tgz",
+      "overridden": false
+    },
+    "boxicons": {
+      "version": "2.1.4",
+      "resolved": "https://registry.npmjs.org/boxicons/-/boxicons-2.1.4.tgz",
+      "overridden": false
+    },
+    "mathjs": {
+      "version": "11.9.1",
+      "resolved": "https://registry.npmjs.org/mathjs/-/mathjs-11.9.1.tgz",
+      "overridden": false
+    },
+    "module": {
+      "version": "1.2.5",
+      "resolved": "https://registry.npmjs.org/module/-/module-1.2.5.tgz",
+      "overridden": false
+    },
+    "persianjs": {
+      "version": "0.4.0",
+      "resolved": "https://registry.npmjs.org/persianjs/-/persianjs-0.4.0.tgz",
+      "overridden": false
+    },
+    "pixi.js": {
+      "version": "7.4.3",
+      "resolved": "https://registry.npmjs.org/pixi.js/-/pixi.js-7.4.3.tgz",
+      "overridden": false
+    },
+    "react-dom": {
+      "version": "18.2.0",
+      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz",
+      "overridden": false
+    },
+    "react": {
+      "version": "18.2.0",
+      "resolved": "https://registry.npmjs.org/react/-/react-18.2.0.tgz",
+      "overridden": false
+    },
+    "readline-sync": {
+      "version": "1.4.10",
+      "resolved": "https://registry.npmjs.org/readline-sync/-/readline-sync-1.4.10.tgz",
+      "overridden": false
+    },
+    "script": {
+      "version": "0.0.12",
+      "resolved": "https://registry.npmjs.org/script/-/script-0.0.12.tgz",
+      "overridden": false
+    },
+    "tailwindcss": {
+      "version": "3.3.3",
+      "resolved": "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.3.3.tgz",
+      "overridden": false
+    },
+    "three": {
+      "version": "0.164.1",
+      "resolved": "https://registry.npmjs.org/three/-/three-0.164.1.tgz",
+      "overridden": false
+    },
+    "typescript": {
+      "version": "5.2.2",
+      "resolved": "https://registry.npmjs.org/typescript/-/typescript-5.2.2.tgz",
+      "overridden": false
+    },
+    "use-sound": {
+      "version": "4.0.1",
+      "resolved": "https://registry.npmjs.org/use-sound/-/use-sound-4.0.1.tgz",
+      "overridden": false
+    },
+    "vite": {
+      "version": "5.4.20",
+      "resolved": "https://registry.npmjs.org/vite/-/vite-5.4.20.tgz",
+      "overridden": false
+    },
+    "yargs": {
+      "version": "17.7.2",
+      "resolved": "https://registry.npmjs.org/yargs/-/yargs-17.7.2.tgz",
+      "overridden": false
+    },
+    "yarn": {
+      "version": "1.22.19",
+      "resolved": "https://registry.npmjs.org/yarn/-/yarn-1.22.19.tgz",
+      "overridden": false
+    }
+  }
+}

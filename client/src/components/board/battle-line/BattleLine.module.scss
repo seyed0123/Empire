@@ -98,6 +98,7 @@
 .BattleLineCardSelectable {
   @extend .BattleLineCard;
   cursor: pointer;
+   position: relative;
 
   &::after {
     content: "";
@@ -139,7 +140,7 @@
 }
 
 .BackContainer {
-  position: relative;
-  bottom: var(--cardHeight);
-  left: calc(var(--cardWidth) - 35px);
+  position: absolute;
+  bottom:  var(--cardWidth);
+  left: calc(var(--cardWidth) - 50px);
 }

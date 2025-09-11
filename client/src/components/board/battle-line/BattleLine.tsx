@@ -42,6 +42,7 @@ export const BattleLine = (props: { state: PlayerState; moves: Moves; ctx: GameC
   const [{ isDragging }, dropRef] = useDrop({
     accept: `player_${playerId}`,
     drop: (card: { id: string }) => {
+       console.log("DROP RECEIVED:", card);
       moves?.playCard?.(card.id);
     },
     collect: (monitor) => ({
