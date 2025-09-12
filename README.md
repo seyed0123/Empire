@@ -1,6 +1,6 @@
 <h1>Condottiere Board Game</h1>
 
-<div style="text-align:center;">
+<div align="center" style="text-align:center;">
   <img src="client/public/logo-condottiere.jpg" width="650"/>
 </div>
 
@@ -33,7 +33,7 @@
     and
     <a href="https://boardgame.io/">boardgame.io</a>
 </p>
-<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 20px;">
+<div align="center" style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 20px;">
     <img src="client/public/screenshot/ReactTS.png" width="30%" />
     <img src="client/public/screenshot/BoardGame.png" width="30%" />
 </div>
@@ -63,7 +63,7 @@ npm start</pre>
     <a href="https://condottiere-game.github.io/">here</a>
 </p>
 <h1>What it Looks Like ?</h1>
-<div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+<div align="center" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
     <img src="client/public/screenshot/MainMenu.png" width="650" />
     <img src="client/public/screenshot/Map.png" width="650" />
     <img src="client/public/screenshot/GameBoard.png" width="650" />
