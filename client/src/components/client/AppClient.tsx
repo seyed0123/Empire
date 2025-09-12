@@ -8,6 +8,16 @@ import { GameLobby } from "../game-lobby/GameLobby";
 import { PixiBackground } from "../main-menu/pixiBackground";
 import { useEffect, useRef } from "react";
 
+function mulberry32(seed: number) {
+  return function () {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+
 export const AppClient = (): JSX.Element => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -16,8 +26,9 @@ export const AppClient = (): JSX.Element => {
   const menuAudioRef = useRef<HTMLAudioElement>(null);
   const battleAudioRef = useRef<HTMLAudioElement>(null);
 
-  const BATTLE_AUDIOS = ["/audio/Warm_Light.mp3", "/audio/Green_Nature.mp3", "/audio/Dark_Castle.mp3"];
+  const BATTLE_AUDIOS = ["/audio/Warm_Light.mp3", "/audio/Green_Nature.mp3", "/audio/Dark_Castle.mp3",'/audio/BeyondTheStars.mp3','/audio/FantasyAmbience.mp3'];
   const randomBattleAudio = BATTLE_AUDIOS[Math.floor(Math.random() * BATTLE_AUDIOS.length)];
+  const rngRef = useRef(mulberry32(Date.now()));
 
   useEffect(() => {
     const audio = menuAudioRef.current;
@@ -47,27 +58,47 @@ export const AppClient = (): JSX.Element => {
   useEffect(() => {
     const menuAudio = menuAudioRef.current;
     const battleAudio = battleAudioRef.current;
+  
+    const playRandomBattleAudio = () => {
+      if (!battleAudio) return; 
 
-    if (location.pathname.startsWith("/battle")) {
+      const rng = rngRef.current;
+      const pick = () => Math.floor(rng() * BATTLE_AUDIOS.length);
+      const randomSrc = BATTLE_AUDIOS[pick()];
+      battleAudio.src = randomSrc;
+      battleAudio.play().catch(() => {});
+    };
+  
+    if (location.pathname.startsWith("/battle") ) {
       if (menuAudio) {
         menuAudio.pause();
         menuAudio.currentTime = 0;
       }
       if (battleAudio) {
-        battleAudio.loop = true;
+        battleAudio.loop = false;
         battleAudio.muted = false;
-        battleAudio.play().catch(() => {});
+        playRandomBattleAudio();
+  
+        battleAudio.addEventListener("ended", playRandomBattleAudio);
       }
     } else {
       if (battleAudio) {
         battleAudio.pause();
         battleAudio.currentTime = 0;
+        battleAudio.removeEventListener("ended", playRandomBattleAudio); 
       }
       if (menuAudio) {
         menuAudio.play().catch(() => {});
       }
     }
-  }, [location.pathname]);
+  
+    return () => {
+      if (battleAudio) {
+        battleAudio.removeEventListener("ended", playRandomBattleAudio);
+      }
+    };
+  }, [location.pathname, rngRef]);
+  
 
   return (
     <>

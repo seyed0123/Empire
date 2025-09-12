@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import * as PIXI from "pixi.js";
+import { DisplacementFilter } from "pixi.js";
 
 export const PixiBackground = () => {
   useEffect(() => {
@@ -11,7 +12,7 @@ export const PixiBackground = () => {
       autoDensity: true,
     } as any);
 
-    const canvas = app.view as HTMLCanvasElement; // 👈 cast
+    const canvas = app.view as HTMLCanvasElement;
     canvas.style.position = "fixed";
     canvas.style.top = "0";
     canvas.style.left = "0";
@@ -29,7 +30,7 @@ export const PixiBackground = () => {
     depthMap.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
     app.stage.addChild(depthMap as PIXI.DisplayObject);
 
-    const displacementFilter = new PIXI.filters.DisplacementFilter(depthMap);
+    const displacementFilter = new DisplacementFilter(depthMap as PIXI.Sprite);
     displacementFilter.scale.set(30, 30);
     background.filters = [displacementFilter];
 
