@@ -73,11 +73,13 @@ const BoardView = (props: {
               </div>
             )
           )}
-          <Hand
-            ctx={ctx}
-            moves={moves}
-            state={playerStates[playerIndex ?? 0]}
-          />
+          {ctx.phase !== KEEP_CARDS_PHASE && (
+            <Hand
+              ctx={ctx}
+              moves={moves}
+              state={playerStates[playerIndex ?? 0]}
+            />
+          )}
           <div className={styles.BtnsContainer}>
             <div className={styles.LeftBtnContainer}>
               <DiscardHand

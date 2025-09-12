@@ -17,7 +17,7 @@
   margin: 0; // Remove margin since it's fixed
   margin-bottom: 30px;
   overflow: visible; // allow cards to overflow container edges
-  z-index: 1000; // Ensure it stays on top
+  z-index: 990; // Ensure it stays on top
   /* if you ever want fallback linear layout, you can add a modifier class */
 }
 
