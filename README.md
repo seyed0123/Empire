@@ -35,7 +35,7 @@
 </p>
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 20px;">
     <img src="client/public/screenshot/ReactTS.png" width="30%" />
-    <img src="client/public/screenshot/boardGame.png" width="30%" />
+    <img src="client/public/screenshot/BoardGame.png" width="30%" />
 </div>
 
 <p>
