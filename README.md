@@ -38,12 +38,12 @@
     <img src="client/public/screenshot/BoardGame.png" width="30%" />
 </div>
 
-<p>
+<p >
    And using
     <a href="https://pixijs.com/">Pixi.js</a> for a 3D background
 </p>
 
-<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 20px;">
+<div align="center" style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 20px;">
  <img src="client/public/screenshot/PixijsLogo.jpg" width="30%" />
 </div>
    
