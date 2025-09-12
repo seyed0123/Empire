@@ -12,7 +12,7 @@ export const PixiBackground = () => {
       autoDensity: true,
     } as any);
 
-    const canvas = app.view as HTMLCanvasElement;
+    const canvas = app.view as HTMLCanvasElement; // 👈 cast
     canvas.style.position = "fixed";
     canvas.style.top = "0";
     canvas.style.left = "0";

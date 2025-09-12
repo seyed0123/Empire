@@ -11,7 +11,7 @@ class AudioManager {
     return AudioManager.instance;
   }
 
-play(src: string, loop = true, volume = 0.5) {
+play(src: string, loop = true, volume = 0.4) {
   if (!this.audio) {
     this.audio = new Audio(src);
     this.audio.loop = loop;
