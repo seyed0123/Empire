@@ -1,4 +1,10 @@
 <h1>Condottiere Board Game</h1>
+
+<div style="text-align:center;">
+  <img src="client/public/logo-condottiere.jpg" width="650"/>
+</div>
+
+<h1>Introduction</h1>
 <p>
     A short description from
     <a href="https://boardgamegeek.com/boardgame/112/condottiere">Board Game Geek</a>
@@ -26,8 +32,21 @@
     <a href="https://reactjs.org/">React</a>
     and
     <a href="https://boardgame.io/">boardgame.io</a>
-    .
 </p>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 20px;">
+    <img src="client/public/screenshot/ReactTS.png" width="30%" />
+    <img src="client/public/screenshot/boardGame.png" width="30%" />
+</div>
+
+<p>
+   And using
+    <a href="https://pixijs.com/">Pixi.js</a> for a 3D background
+</p>
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 20px;">
+ <img src="client/public/screenshot/PixijsLogo.jpg" width="30%" />
+</div>
+   
 <p>
     To run the client (make sure to have
     <code>npm</code>
@@ -42,8 +61,14 @@ npm start</pre>
 <p>
     The live demo can be found
     <a href="https://condottiere-game.github.io/">here</a>
-    .
 </p>
+<h1>What it Looks Like ?</h1>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+    <img src="client/public/screenshot/MainMenu.png" width="650" />
+    <img src="client/public/screenshot/Map.png" width="650" />
+    <img src="client/public/screenshot/GameBoard.png" width="650" />
+</div>
+
 <h1>License</h1>
 <p>
     The image game assets can be downloaded
