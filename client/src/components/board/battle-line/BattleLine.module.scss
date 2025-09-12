@@ -1,27 +1,165 @@
 .Container {
+  position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start; 
+  align-items: flex-end;  
+  flex-wrap: wrap;        
   width: 100%;
-  overflow-x: auto;
-  border-style: solid;
-  border-width: 5px;
-  margin: 0.1em;
-  min-height: calc(var(--cardHeight) + 0.4em);
+  margin: 0.75em auto;
+  min-height: calc(var(--cardHeight) + 1em);
   height: fit-content;
-  border-radius: 20px;
+  border-radius: 16px;
+  padding: 1.5em 1em 0.75em 1em;
+  gap: 0.75em;
+
+  /* glass effect */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.06)
+  );
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+
+  /* glow highlight when dragging over */
+  &[data-dragging="true"] {
+    border-color: var(--selectColor);
+    box-shadow: 0 0 20px var(--selectColor);
+  }
+
+  /* muted look when passed */
+  &.passed {
+    opacity: 0.65;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(200, 200, 200, 0.15),
+      rgba(200, 200, 200, 0.15) 10px,
+      rgba(240, 240, 240, 0.08) 10px,
+      rgba(240, 240, 240, 0.08) 20px
+    );
+  }
+
+  /* subtle lane texture */
+  background-image: 
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.10),
+      rgba(255, 255, 255, 0.05)
+    ),
+    radial-gradient(circle at 20% 20%, rgba(0,0,0,0.05) 0 20%, transparent 20%),
+    radial-gradient(circle at 80% 80%, rgba(0,0,0,0.04) 0 18%, transparent 18%);
+}
+
+.PlayerIcon {
+  position: absolute;
+  top: 0.4em;
+  left: 0.6em;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--laneColor, #888);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+/* Optional hover pulse */
+.PlayerIcon.active {
+  animation: iconPulse 1.8s infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 6px var(--laneColor); }
+  50% { transform: scale(1.1); box-shadow: 0 0 12px var(--laneColor); }
+}
+
+/* lightweight particles */
+.Particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,0.25), transparent 60%),
+    radial-gradient(2px 2px at 30% 70%, rgba(255,255,255,0.18), transparent 60%),
+    radial-gradient(2px 2px at 80% 40%, rgba(255,255,255,0.2), transparent 60%);
+  animation: floatParticles 6s linear infinite;
+}
+
+@keyframes floatParticles {
+  0% { transform: translateY(0); opacity: 0.9; }
+  50% { transform: translateY(-6px); opacity: 0.6; }
+  100% { transform: translateY(0); opacity: 0.9; }
+}
+
+/* current turn subtle glow */
+.CurrentTurn {
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.22), 0 0 24px var(--laneColor);
 }
 
 .BattleLineCard {
   display: flex;
   flex-direction: column;
-  margin: 0.2em;
+  position: relative;
+  margin: 0.25em;
+  transform: translateY(0) scale(1);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.25s ease;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+
+  &:hover {
+    transform: translateY(-6px) scale(1.06);
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35));
+    z-index: 5;
+  }
+  /* impact animation when card appears */
+  animation: cardIn 260ms cubic-bezier(.2,.8,.2,1);
 }
 
 .BattleLineCardSelectable {
   @extend .BattleLineCard;
-  outline: 5px solid var(--scarecrowColor);
-  outline-offset: -5px;
   cursor: pointer;
+   position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    border: 3px solid var(--scarecrowColor);
+    box-shadow: 0 0 10px var(--scarecrowColor);
+    animation: pulseGlow 1.8s infinite;
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 15px #ff6b6b;
+  }
+}
+
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.7;
+    box-shadow: 0 0 8px var(--scarecrowColor);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 16px var(--scarecrowColor);
+  }
+}
+
+@keyframes cardIn {
+  0% { transform: translateY(-10px) scale(0.96); filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+  70% { transform: translateY(2px) scale(1.02); }
+  100% { transform: translateY(0) scale(1); }
 }
 
 .None {
@@ -29,9 +167,7 @@
 }
 
 .BackContainer {
-  position: relative;
-  bottom: var(--cardHeight);
-  left: calc(var(--cardWidth) - 35px);
-  width: 0;
-  height: 0;
+  position: absolute;
+  bottom:  var(--cardWidth);
+  left: calc(var(--cardWidth) - 50px);
 }

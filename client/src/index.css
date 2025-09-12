@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding-bottom: 250px; /* Add space at bottom for fixed card deck */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -18,12 +19,17 @@ code {
     monospace;
 }
 :root {
-  --cardHeight: 154.4px;
-  --cardWidth: 100px;
+  --cardHeight: 170px;
+  --cardWidth: 120px;
   --selectColor: #ddeaee;
   --scarecrowColor: #f9301e;
   --messageColor: #f9301e;
   --orangebrown: #ba8c63;
+  --Mossgreen : #8E8B6B;
+  --Sage:#A6AA8A;
+  --Peachyellow:#ECD495;
+  --Lion:#C19C81;
+  --Rawnumber:#936B47;
   --emptyColor: rgba(0, 0, 0, 0.39);
   --mapHeight: 2126px;
   --mapWidth: 1473px;
@@ -60,3 +66,18 @@ code {
 /*
   Scrollbar Styles End
 */
+
+/* Card styling fixes */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}

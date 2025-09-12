@@ -44,3 +44,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+```
+npm install pixi.js
+npm install @pixi/unsafe-eval
+npm install @pixi/filter-displacement
+npm install pixi.js@7 @inlet/react-pixi@6 --legacy-peer-deps
+npm install --save-dev sass --force
+```

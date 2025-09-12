@@ -1,5 +1,5 @@
 import { useDrop } from "react-dnd";
-import { ICardModel, Moves, PlayerState } from "../../../domain/entity";
+import { ICardModel, Moves, PlayerState, GameContext } from "../../../domain/entity";
 import {
   getScarecrow,
   scarecrowPlayed,
@@ -29,8 +29,8 @@ function getBackground(passed: boolean) {
   return passed ? { background: "var(--lightgray)", opacity: OPACITY } : {};
 }
 
-export const BattleLine = (props: { state: PlayerState; moves: Moves }) => {
-  const { state, moves } = props;
+export const BattleLine = (props: { state: PlayerState; moves: Moves; ctx: GameContext }) => {
+  const { state, moves, ctx } = props;
   const playerId = state.id;
   const model = state.battleLine;
 
@@ -42,6 +42,7 @@ export const BattleLine = (props: { state: PlayerState; moves: Moves }) => {
   const [{ isDragging }, dropRef] = useDrop({
     accept: `player_${playerId}`,
     drop: (card: { id: string }) => {
+       console.log("DROP RECEIVED:", card);
       moves?.playCard?.(card.id);
     },
     collect: (monitor) => ({
@@ -62,15 +63,25 @@ export const BattleLine = (props: { state: PlayerState; moves: Moves }) => {
     }
   }, [state.passed, state.id, t]);
 
+  const isCurrentTurn = ctx.currentPlayer === playerId;
+
   return (
     <div
-      className={styles.Container}
+      className={
+        `${styles.Container} ${state.passed ? styles.passed : ""} ${isCurrentTurn ? styles.CurrentTurn : ""}`
+      }
       ref={dropRef}
       style={{
         ...getBorderColor(isDragging, state.id),
         ...getBackground(state.passed),
+        ["--laneColor" as any]: PLAYER_COLORS[playerId],
       }}
+      data-dragging={isDragging ? "true" : "false"}
     >
+      <div className={`${styles.PlayerIcon} ${isCurrentTurn ? styles.Active : ""}`}>
+      {playerId === "0" ? "👑" : "⚔️"}
+      </div>
+      <div className={styles.Particles} aria-hidden="true" />
       <TransitionGroup component={null}>
         {model.map((card: ICardModel) => {
           return (

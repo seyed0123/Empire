@@ -1,30 +1,63 @@
-.Container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  overflow-x: auto;
-  background-color: var(--orangebrown);
-  border-style: solid;
-  //justify-content: safe center; // switch when implemented
-  height: fit-content;
-  border-radius: 20px;
-  min-height: fit-content;
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-top: 1em;
-  // safe center workaround
-  &::before,
-  &::after {
-    content: "";
-    flex: 1;
-  }
+:root {
+  /* adjust card size here */
+  --cardWidth: 120px;
+  --cardHeight: 170px;
 }
 
+.Container {
+  position: fixed; // Fixed positioning to stick to bottom
+  bottom: 20px; // Add bottom margin from viewport edge
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: calc(var(--cardHeight) + 3.2rem); // enough room for the fan
+  background-color: transparent; // Remove brown background
+  border: none; // Remove border
+  border-radius: 0; // Remove border radius
+  margin: 0; // Remove margin since it's fixed
+  margin-bottom: 30px;
+  overflow: visible; // allow cards to overflow container edges
+  z-index: 990; // Ensure it stays on top
+  /* if you ever want fallback linear layout, you can add a modifier class */
+}
+
+/* wrapper that is absolutely positioned and rotated using CSS variables */
+.CardWrapper {
+  position: absolute;
+  bottom: 0;
+  /* left is computed from center + --offset */
+  left: calc(50% + var(--offset, 0px));
+  transform: translateX(-50%) rotate(var(--angle, 0deg));
+  transform-origin: bottom center;
+  width: var(--cardWidth);
+  height: var(--cardHeight);
+  display: block;
+  transition: transform 220ms cubic-bezier(.2,.8,.2,1), left 220ms cubic-bezier(.2,.8,.2,1);
+  will-change: transform, left;
+  pointer-events: auto;
+  cursor: grab;
+  /* increase stacking context when hovering */
+}
+
+.CardWrapper:hover {
+  transform: translateX(-50%) rotate(var(--angle, 0deg)) translateY(-18px) scale(1.05);
+  z-index: 9999; /* bring hovered card to front */
+  cursor: pointer;
+}
+
+/* optional small shadow so fan looks nicer */
+.CardWrapper > :global(*) {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  border-radius: 6px;
+}
+
+/* small helper if you need to add margin top/bottom originally used by .Drag */
 .Drag {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
+/* displayed when hand is empty */
 .Empty {
   height: var(--cardHeight);
   margin-top: 0.5em;
@@ -32,6 +65,8 @@
   pointer-events: none;
 }
 
+/* disabling interactions */
 .Disabled {
   pointer-events: none;
+  opacity: 0.65;
 }

@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 import { TOAST_TIMEOUT } from "../constants";
+import "./alert.scss";
 
 export const showAlert = (msg: string) => {
   toast(msg, {
@@ -18,15 +19,17 @@ export const showAlert = (msg: string) => {
       border: "none",
       boxShadow: "none",
       boxSizing: "unset",
-      borderRadius: "0px",
+      borderRadius: "2px",
       textAlign: "center",
       fontWeight: "bolder",
       fontSize: "30px",
       padding: "0.1em",
-      textShadow:
-        "0.1em 0 black, 0 0.1em black, -0.1em 0 black, 0 -0.1em black",
+      textShadow: 
+      "1px 1px rgb(90, 45, 13), -1px -1px rgb(73, 38, 13), 1px -1px rgb(82, 42, 13), -1px 1px #8b4513",
       color: "var(--messageColor)",
       backgroundColor: "transparent",
+      fontFamily: "'VintageFont', monospace",
+
     },
   });
 };

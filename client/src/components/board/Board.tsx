@@ -63,21 +63,23 @@ const BoardView = (props: {
         <div className={styles.Container}>
           <ScoreBoard model={playerStates} ctx={ctx} />
           {reorderBattleLines(playerStates, playerIndex).map(
-            (playerState: PlayerState) => {
-              return (
+            (playerState: PlayerState) => (
+              <div className={styles.BattleLineWrapper} key={playerState.id}>
                 <BattleLine
-                  key={playerState.id}
                   state={playerState}
                   moves={moves}
+                  ctx={ctx}
                 />
-              );
-            }
+              </div>
+            )
           )}
-          <Hand
-            ctx={ctx}
-            moves={moves}
-            state={playerStates[playerIndex ?? 0]}
-          />
+          {ctx.phase !== KEEP_CARDS_PHASE && (
+            <Hand
+              ctx={ctx}
+              moves={moves}
+              state={playerStates[playerIndex ?? 0]}
+            />
+          )}
           <div className={styles.BtnsContainer}>
             <div className={styles.LeftBtnContainer}>
               <DiscardHand

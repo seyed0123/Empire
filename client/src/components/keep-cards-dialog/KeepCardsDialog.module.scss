@@ -4,6 +4,10 @@
   width: "100%";
   height: fit-content;
   padding: 0.5em;
+
+  position: relative; 
+  z-index: 10000;
+  
   > .ExplanationContainer {
     display: flex;
     flex-direction: column;
